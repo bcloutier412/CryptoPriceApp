@@ -58,7 +58,7 @@ const ChartComponent = ({ symbol }) => {
     <div>
       {data ? (
         <div>
-          <button onClick={() => setTimeScale('7D')}>7D</button><button onClick={() => setTimeScale('1M')}>1M</button><button onClick={() => setTimeScale('3M')}>3M</button>
+          <button onClick={() => setTimeScale('7D')}>7D</button><button onClick={() => setTimeScale('1M')}>1M</button>
           <Chart
             options={options}
             series={[{ data: data }]}
