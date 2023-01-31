@@ -1,5 +1,5 @@
 # CryptoPriceApp
-Crypto fullstack app that displays crypto prices fetched from the coinApi and charted using the Apex Charts library
+Simple Crypto price chart app to practice react, node.js, express, and axios
 
 ![CryptoAppScreenshot](/git-image/home.png)
 
