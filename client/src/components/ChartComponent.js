@@ -30,9 +30,10 @@ const options = {
 const ChartComponent = ({ symbol }) => {
   const [data, setData] = useState(null);
   const [placeHolder, setPlaceholder] = useState("Loading...");
+  const [timeScale, setTimeScale] = useState('7D')
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/quotes/${symbol}/7D`)
+      .get(`http://localhost:3001/api/quotes/${symbol}/${timeScale}`)
       .then((response) => {
         const data = response.data;
         console.log(data);
@@ -51,19 +52,22 @@ const ChartComponent = ({ symbol }) => {
         setData(chartData);
       })
       .catch((error) => setPlaceholder("Could not Fetch Data"));
-  }, [symbol]);
+  }, [symbol, timeScale]);
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div>
       {data ? (
-        <Chart
-          options={options}
-          series={[{ data: data }]}
-          type="candlestick"
-          width="100%"
-        />
+        <div>
+          <button onClick={() => setTimeScale('7D')}>7D</button><button onClick={() => setTimeScale('1M')}>1M</button><button onClick={() => setTimeScale('3M')}>3M</button>
+          <Chart
+            options={options}
+            series={[{ data: data }]}
+            type="candlestick"
+            width="100%"
+          />
+        </div>
       ) : (
-        placeHolder
+        <div style={{ textAlign: "center" }}>{placeHolder}</div>
       )}
     </div>
   );
