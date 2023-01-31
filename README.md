@@ -1,2 +1,10 @@
 # CryptoPriceApp
-Crypto App that monitors the top Crypto prices
+Crypto App that displays crypto prices fetched from the coinApi and charted using the Apex Charts library
+
+![CryptoAppScreenshot](/git-image/home.png)
+
+## How it was made
+* React
+* Express
+* Node.js
+* Axios
